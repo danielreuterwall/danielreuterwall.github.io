@@ -1,114 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Daniel Reuterwall</title>
-  <meta name="author" content="Daniel Reuterwall">
-
-  
-  <meta name="description" content="Background Last time we setup our staging environment and added a configuration property just to show how to work with different configuration &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><![CDATA[Daniel Reuterwall]]></title>
+  <link href="http://danielreuterwall.github.com/atom.xml" rel="self"/>
+  <link href="http://danielreuterwall.github.com/"/>
+  <updated>2013-04-09T20:36:34+02:00</updated>
+  <id>http://danielreuterwall.github.com/</id>
+  <author>
+    <name><![CDATA[Daniel Reuterwall]]></name>
+    <email><![CDATA[daniel@reuterwall.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-  <link rel="canonical" href="http://danielreuterwall.github.com">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Daniel Reuterwall" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-37691993-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Daniel Reuterwall</a></h1>
-  
-    <h2>Web Developer | Sports Fanatic | Father of Four</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:danielreuterwall.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/who-am-I">Who am I</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/04/03/restrict-access/">Restrict Access</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-03T22:11:00+02:00" pubdate data-updated="true">Apr 3<span>rd</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-
-  <div class="entry-content"><h2>Background</h2>
+  <entry>
+    <title type="html"><![CDATA[Restrict Access]]></title>
+    <link href="http://danielreuterwall.github.com/blog/2013/04/03/restrict-access/"/>
+    <updated>2013-04-03T22:11:00+02:00</updated>
+    <id>http://danielreuterwall.github.com/blog/2013/04/03/restrict-access</id>
+    <content type="html"><![CDATA[<h2>Background</h2>
 
 <p>Last time we setup our staging environment and added a configuration property just to show how to work with different configuration between different environments. Today we&#8217;ll look at how to restrict access to our staging environment. We don&#8217;t want just anybody to be able to see our latest features before we release them.</p>
 
@@ -172,43 +82,15 @@ basicAuth = configuration.getBoolean("basicAuth.enable");
 
 <p>I&#8217;ve found this setup useful and I hope you will to.
 Best of luck, see you around!</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/16/setting-up-a-staging-environment/">Setting Up a Staging Environment</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-16T21:40:00+01:00" pubdate data-updated="true">Jan 16<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-
-  <div class="entry-content"><h2>Setup up staging</h2>
+  <entry>
+    <title type="html"><![CDATA[Setting Up a Staging Environment]]></title>
+    <link href="http://danielreuterwall.github.com/blog/2013/01/16/setting-up-a-staging-environment/"/>
+    <updated>2013-01-16T21:40:00+01:00</updated>
+    <id>http://danielreuterwall.github.com/blog/2013/01/16/setting-up-a-staging-environment</id>
+    <content type="html"><![CDATA[<h2>Setup up staging</h2>
 
 <p>Testing is an essential part of the development process. With Play, TDD and testing in general is made easy but that’s out of scope for this tutorial. What we’ll focus on here is to setup a staging environment for our project so we can test new features in a production like environment before we push them to production.</p>
 
@@ -236,7 +118,7 @@ Best of luck, see you around!</p>
 
 <p>After the deployment has completed we can open up our browser and check that everything worked as expected. The URL for the staging environment is <a href="http://playtuts-staging.herokuapp.com">http://playtuts-staging.herokuapp.com</a>.</p>
 
-<p><img src="/images/posts/staging-running.png" title="Playtuts project running in staging environment" ></p>
+<p><img src="http://danielreuterwall.github.com/images/posts/staging-running.png" title="Playtuts project running in staging environment" ></p>
 
 <p>The output looks just like the one from when we deployed our project last time in the environment from now on referred to as <em>production</em>.</p>
 
@@ -280,43 +162,15 @@ $ heroku config:add JAVA_OPTS="-Xmx384m -Xss512k -XX:+UseCompressedOops -Dconfig
 <p>We&#8217;ve seen how easy it is to setup additional environments when working with Heroku. The tricky part here was to enable separate configurations between the different environments but then again, it didn&#8217;t take that much effort to accomplish it.</p>
 
 <p>Moving forward we&#8217;ll have a look at how to restrict access to the staging environment, stay tuned&#8230;</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/08/play-in-the-cloud/">Play in the Cloud</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-08T21:26:00+01:00" pubdate data-updated="true">Jan 8<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-
-  <div class="entry-content"><h2>Create your Play project</h2>
+  <entry>
+    <title type="html"><![CDATA[Play in the Cloud]]></title>
+    <link href="http://danielreuterwall.github.com/blog/2013/01/08/play-in-the-cloud/"/>
+    <updated>2013-01-08T21:26:00+01:00</updated>
+    <id>http://danielreuterwall.github.com/blog/2013/01/08/play-in-the-cloud</id>
+    <content type="html"><![CDATA[<h2>Create your Play project</h2>
 
 <p>In this first part of Play with multiple environments on Heroku, we’ll start off simple and create a new Play project and deploy it to Heroku. The full process is even documented in <a href="http://www.playframework.com/documentation/2.1.0/ProductionHeroku">the official Play Framework documentation</a>.</p>
 
@@ -327,7 +181,7 @@ $ heroku config:add JAVA_OPTS="-Xmx384m -Xss512k -XX:+UseCompressedOops -Dconfig
 <pre><code>$ play new playtuts
 </code></pre>
 
-<p><img src="/images/posts/create-playtuts.png" title="Creating the playtuts project" ></p>
+<p><img src="http://danielreuterwall.github.com/images/posts/create-playtuts.png" title="Creating the playtuts project" ></p>
 
 <p>We chose to <em>Create a simple Java application</em> for the unfortunate reason that I’m not yet so familiar with Scala. It will however not affect this tutorial.</p>
 
@@ -337,7 +191,7 @@ $ heroku config:add JAVA_OPTS="-Xmx384m -Xss512k -XX:+UseCompressedOops -Dconfig
 $ play run
 </code></pre>
 
-<p><img src="/images/posts/local-running.png" title="Playtuts project running locally" ></p>
+<p><img src="http://danielreuterwall.github.com/images/posts/local-running.png" title="Playtuts project running locally" ></p>
 
 <p>Seeing this screen in our browser at <a href="http://localhost:9000">http://localhost:9000</a> tells us we’re on track. The page now shows the default Play welcome message.</p>
 
@@ -354,7 +208,7 @@ $ play run
 <pre><code>$ heroku apps:create playtuts
 </code></pre>
 
-<p><img src="/images/posts/create-heroku-app.png" title="Creating the Heroku app" ></p>
+<p><img src="http://danielreuterwall.github.com/images/posts/create-heroku-app.png" title="Creating the Heroku app" ></p>
 
 <p>What we get from this command is, as stated in the output, an Heroku app serving from <a href="http://playtuts.herokuapp.com">http://playtuts.herokuapp.com</a> and a remote git repository where we’ll deploy our project.</p>
 
@@ -371,11 +225,11 @@ $ git commit -m "Initial commit"
 $ git push heroku master
 </code></pre>
 
-<p><img src="/images/posts/git-and-deploy.png" title="Setup Git repository and deploy to Heroku" ></p>
+<p><img src="http://danielreuterwall.github.com/images/posts/git-and-deploy.png" title="Setup Git repository and deploy to Heroku" ></p>
 
 <p>Heroku will automatically detect that we deployed a Play application and start it accordingly. You’ll see the whole deployment process from the git push output. Once it’s ready you can again open up your browser and now hit <a href="http://playtuts.herokuapp.com">http://playtuts.herokuapp.com</a>.</p>
 
-<p><img src="/images/posts/heroku-running.png" title="Playtuts project running in the cloud" ></p>
+<p><img src="http://danielreuterwall.github.com/images/posts/heroku-running.png" title="Playtuts project running in the cloud" ></p>
 
 <p>This super exciting screenshot shows that we successfully deployed our project to Heroku. The difference in appearance from our local site comes from the fact that the app now runs in production mode and the former welcome page is stripped.</p>
 
@@ -395,88 +249,7 @@ $ git push heroku master
 <p>Through just these seven line we created our project and deployed in the cloud. That’s pretty amazing although in itself it doesn’t give us much. In the next post we’ll setup a staging environment for beta testing.</p>
 
 <p>Stay tuned…</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/04/03/restrict-access/">Restrict Access</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/16/setting-up-a-staging-environment/">Setting Up a Staging Environment</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/08/play-in-the-cloud/">Play in the Cloud</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Daniel Reuterwall -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'danielreuterwall';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-</body>
-</html>
+</feed>

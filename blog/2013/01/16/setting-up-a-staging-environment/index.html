@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Setting Up a Staging Environment - Daniel Reuterwall</title>
+  <meta name="author" content="Daniel Reuterwall">
+
+  
+  <meta name="description" content="Setup up staging Testing is an essential part of the development process. With Play, TDD and testing in general is made easy but that’s out of scope &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://danielreuterwall.github.com/blog/2013/01/16/setting-up-a-staging-environment">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Daniel Reuterwall" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37691993-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Daniel Reuterwall</a></h1>
+  
+    <h2>Web Developer | Sports Fanatic | Father of Four</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:danielreuterwall.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/who-am-I">Who am I</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Setting Up a Staging Environment</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-16T21:40:00+01:00" pubdate data-updated="true">Jan 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <section class="post-series">
+    <p>
+        Throughout a series of blog posts, I’ll propose my idea of a good project setup using the amazing Play Framework deployed in the just as amazing cloud platform Heroku. Although it might not be as sexy as other dev tutorials and Play modules I hope you’ll find it useful.
+    </p>
+    <p>
+        The idea is to ease the setup of the typical environments you want to have for your projects. Heroku will be the platform of choice thanks to its flexibility and excellent resources. Setting up a new app (environment) on Heroku is as simple as a one line command.
+    </p>
+    <nav>
+        <ul>
+        
+            <li>
+            
+                <a href="/blog/2013/01/08/play-in-the-cloud/">Play in the Cloud</a>
+            
+            </li>
+        
+            <li>
+            
+                <span>Setting Up a Staging Environment</span>
+            
+            </li>
+        
+            <li>
+            
+                <a href="/blog/2013/04/03/restrict-access/">Restrict Access</a>
+            
+            </li>
+        
+        </ul>
+    </nav>
+</section>
+
+
+<div class="entry-content"><h2>Setup up staging</h2>
+
+<p>Testing is an essential part of the development process. With Play, TDD and testing in general is made easy but that’s out of scope for this tutorial. What we’ll focus on here is to setup a staging environment for our project so we can test new features in a production like environment before we push them to production.</p>
+
+<p>Working with <a href="http://devcenter.heroku.com/articles/multiple-environments">multiple environments on Heroku</a> is well documented in the Heroku Dev Center. Basically you just need to create a new Heroku app where you deploy your project. Some tweaks to handle different configuration is still needed though. By the end of this post you should have an understanding of basics and the necessary steps to do this.</p>
+
+<p>We’ll start with creating our new app for the staging environment. Keeping things simple, we’ll just name it playtuts-staging.</p>
+
+<pre><code>$ heroku apps:create playtuts-staging
+</code></pre>
+
+<p>Of course we need to be able to push our code to the newly created Heroku app so we’ll add a new git remote pointing to the git URL given to us from the previous output.</p>
+
+<pre><code>$ git remote add staging git@heroku.com:playtuts-staging.git
+</code></pre>
+
+<p>One thing to address now is that the remote created in the previous post is named heroku. Your can check your existing remotes with the git remote command. This can of course be a bit confusing so let’s rename it to production instead.</p>
+
+<pre><code>$ git remote rename heroku production
+</code></pre>
+
+<p>So now we’re ready to do our first push to the staging repository and deploy our application in the staging environment.</p>
+
+<pre><code>$ git push staging master
+</code></pre>
+
+<p>After the deployment has completed we can open up our browser and check that everything worked as expected. The URL for the staging environment is <a href="http://playtuts-staging.herokuapp.com">http://playtuts-staging.herokuapp.com</a>.</p>
+
+<p><img src="/images/posts/staging-running.png" title="Playtuts project running in staging environment" ></p>
+
+<p>The output looks just like the one from when we deployed our project last time in the environment from now on referred to as <em>production</em>.</p>
+
+<h2>Different configuration</h2>
+
+<p>Good progress so far. Now, we’ll have a look at how we can set different configuration for the two environments, staging and production. You’d want this for datastore connection properties et.c. To show how this could be done we’ll modify our welcome screen to print a configuration property identifying the current environment.</p>
+
+<p>The default configuration for a Play application is defined in <code>conf/application.conf</code>. You can however add additional configuration files and use system properties to specify which one to be used. More on this can be found in the <a href="http://www.playframework.com/documentation/2.1.0/Configuration">configuration section in the Play documentation</a>.</p>
+
+<p>For our project we’ll create two new configuration files, <code>production.conf</code> and <code>staging.conf</code>. Both will include the default configuration to keep just the environment specific properties managed outside the <code>application.conf</code>.</p>
+
+<pre><code>include "application.conf"
+environment.name="production"
+
+include "application.conf"
+environment.name="staging"
+</code></pre>
+
+<p>We’ll then need to add a environment variable for each Heroku app to make sure our Play application uses the correct configuration file. You can check the current environment variable using the Heroku CLI.</p>
+
+<pre><code>$ heroku config --app playtuts
+$ heroku config --app playtuts-staging
+</code></pre>
+
+<p>With the system property named <code>config.resource</code> we can specify an alternative configuration file. Being a Java application we simply need to add it to our <code>JAVA_OPTS</code>. Make sure you keep the existing values and not just overwrite the <code>JAVA_OPTS</code>.</p>
+
+<pre><code>$ heroku config:add JAVA_OPTS="-Xmx384m -Xss512k -XX:+UseCompressedOops -Dconfig.resource=production.conf" --app playtuts
+$ heroku config:add JAVA_OPTS="-Xmx384m -Xss512k -XX:+UseCompressedOops -Dconfig.resource=staging.conf" --app playtuts-staging
+</code></pre>
+
+<p>Finally we’ll modify the output on our welcome screen to include our newly added configuration property. To read the configuration we need to import the class <code>play.api.Play</code> which gives us access to bunch of global features among them the current application which in turn gives access to the configuration. We’ll remove the default Play welcome message and add our own.</p>
+
+<div><script src='https://gist.github.com/5304619.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>That’s it. Now we just need to push it out to our Heroku apps and be amazed over what we’ve accomplished. Of course we’ll do things in the right order. Check locally with play run, then the push to staging before we finally push to production but you already had that in mind right!?</p>
+
+<h2>Conclusion</h2>
+
+<p>We&#8217;ve seen how easy it is to setup additional environments when working with Heroku. The tricky part here was to enable separate configurations between the different environments but then again, it didn&#8217;t take that much effort to accomplish it.</p>
+
+<p>Moving forward we&#8217;ll have a look at how to restrict access to the staging environment, stay tuned&#8230;</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Daniel Reuterwall</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-16T21:40:00+01:00" pubdate data-updated="true">Jan 16<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/framework/'>Framework,</a>, <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/play/'>Play</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://danielreuterwall.github.com/blog/2013/01/16/setting-up-a-staging-environment/" data-via="" data-counturl="http://danielreuterwall.github.com/blog/2013/01/16/setting-up-a-staging-environment/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/08/play-in-the-cloud/" title="Previous Post: Play in the Cloud">&laquo; Play in the Cloud</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/04/03/restrict-access/" title="Next Post: Restrict Access">Restrict Access &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/04/03/restrict-access/">Restrict Access</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/16/setting-up-a-staging-environment/">Setting Up a Staging Environment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/08/play-in-the-cloud/">Play in the Cloud</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Daniel Reuterwall -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'danielreuterwall';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://danielreuterwall.github.com/blog/2013/01/16/setting-up-a-staging-environment/';
+        var disqus_url = 'http://danielreuterwall.github.com/blog/2013/01/16/setting-up-a-staging-environment/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>
