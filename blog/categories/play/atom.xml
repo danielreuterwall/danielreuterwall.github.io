@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Play | Daniel Reuterwall]]></title>
-  <link href="http://danielreuterwall.github.io/blog/categories/play/atom.xml" rel="self"/>
-  <link href="http://danielreuterwall.github.io/"/>
-  <updated>2013-04-11T09:34:35+02:00</updated>
-  <id>http://danielreuterwall.github.io/</id>
+  <link href="http://daniel.reuterwall.com/blog/categories/play/atom.xml" rel="self"/>
+  <link href="http://daniel.reuterwall.com/"/>
+  <updated>2013-04-11T20:46:01+02:00</updated>
+  <id>http://daniel.reuterwall.com/</id>
   <author>
     <name><![CDATA[Daniel Reuterwall]]></name>
     <email><![CDATA[daniel@reuterwall.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Setting Up a Staging Environment]]></title>
-    <link href="http://danielreuterwall.github.io/blog/2013/01/16/setting-up-a-staging-environment/"/>
+    <link href="http://daniel.reuterwall.com/blog/2013/01/16/setting-up-a-staging-environment/"/>
     <updated>2013-01-16T21:40:00+01:00</updated>
-    <id>http://danielreuterwall.github.io/blog/2013/01/16/setting-up-a-staging-environment</id>
+    <id>http://daniel.reuterwall.com/blog/2013/01/16/setting-up-a-staging-environment</id>
     <content type="html"><![CDATA[<h2>Setup up staging</h2>
 
 <p>Testing is an essential part of the development process. With Play, TDD and testing in general is made easy but that’s out of scope for this tutorial. What we’ll focus on here is to setup a staging environment for our project so we can test new features in a production like environment before we push them to production.</p>
@@ -95,9 +95,9 @@ $ heroku config:add JAVA_OPTS="-Xmx384m -Xss512k -XX:+UseCompressedOops -Dconfig
   
   <entry>
     <title type="html"><![CDATA[Play in the Cloud]]></title>
-    <link href="http://danielreuterwall.github.io/blog/2013/01/08/play-in-the-cloud/"/>
+    <link href="http://daniel.reuterwall.com/blog/2013/01/08/play-in-the-cloud/"/>
     <updated>2013-01-08T21:26:00+01:00</updated>
-    <id>http://danielreuterwall.github.io/blog/2013/01/08/play-in-the-cloud</id>
+    <id>http://daniel.reuterwall.com/blog/2013/01/08/play-in-the-cloud</id>
     <content type="html"><![CDATA[<h2>Create your Play project</h2>
 
 <p>In this first part of Play with multiple environments on Heroku, we’ll start off simple and create a new Play project and deploy it to Heroku. The full process is even documented in <a href="http://www.playframework.com/documentation/2.1.0/ProductionHeroku">the official Play Framework documentation</a>.</p>

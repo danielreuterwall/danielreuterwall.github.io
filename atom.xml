@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Daniel Reuterwall]]></title>
-  <link href="http://danielreuterwall.github.io/atom.xml" rel="self"/>
-  <link href="http://danielreuterwall.github.io/"/>
-  <updated>2013-04-11T09:34:35+02:00</updated>
-  <id>http://danielreuterwall.github.io/</id>
+  <link href="http://daniel.reuterwall.com/atom.xml" rel="self"/>
+  <link href="http://daniel.reuterwall.com/"/>
+  <updated>2013-04-11T20:46:01+02:00</updated>
+  <id>http://daniel.reuterwall.com/</id>
   <author>
     <name><![CDATA[Daniel Reuterwall]]></name>
     <email><![CDATA[daniel@reuterwall.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Restrict Access]]></title>
-    <link href="http://danielreuterwall.github.io/blog/2013/04/03/restrict-access/"/>
+    <link href="http://daniel.reuterwall.com/blog/2013/04/03/restrict-access/"/>
     <updated>2013-04-03T22:11:00+02:00</updated>
-    <id>http://danielreuterwall.github.io/blog/2013/04/03/restrict-access</id>
+    <id>http://daniel.reuterwall.com/blog/2013/04/03/restrict-access</id>
     <content type="html"><![CDATA[<h2>Background</h2>
 
 <p>Last time we setup our staging environment and added a configuration property just to show how to work with different configuration between different environments. Today we&#8217;ll look at how to restrict access to our staging environment. We don&#8217;t want just anybody to be able to see our latest features before we release them.</p>
@@ -87,9 +87,9 @@ Best of luck, see you around!</p>
   
   <entry>
     <title type="html"><![CDATA[Setting Up a Staging Environment]]></title>
-    <link href="http://danielreuterwall.github.io/blog/2013/01/16/setting-up-a-staging-environment/"/>
+    <link href="http://daniel.reuterwall.com/blog/2013/01/16/setting-up-a-staging-environment/"/>
     <updated>2013-01-16T21:40:00+01:00</updated>
-    <id>http://danielreuterwall.github.io/blog/2013/01/16/setting-up-a-staging-environment</id>
+    <id>http://daniel.reuterwall.com/blog/2013/01/16/setting-up-a-staging-environment</id>
     <content type="html"><![CDATA[<h2>Setup up staging</h2>
 
 <p>Testing is an essential part of the development process. With Play, TDD and testing in general is made easy but that’s out of scope for this tutorial. What we’ll focus on here is to setup a staging environment for our project so we can test new features in a production like environment before we push them to production.</p>
@@ -118,7 +118,7 @@ Best of luck, see you around!</p>
 
 <p>After the deployment has completed we can open up our browser and check that everything worked as expected. The URL for the staging environment is <a href="http://playtuts-staging.herokuapp.com">http://playtuts-staging.herokuapp.com</a>.</p>
 
-<p><img src="http://danielreuterwall.github.io/images/posts/staging-running.png" title="Playtuts project running in staging environment" ></p>
+<p><img src="http://daniel.reuterwall.com/images/posts/staging-running.png" title="Playtuts project running in staging environment" ></p>
 
 <p>The output looks just like the one from when we deployed our project last time in the environment from now on referred to as <em>production</em>.</p>
 
@@ -167,9 +167,9 @@ $ heroku config:add JAVA_OPTS="-Xmx384m -Xss512k -XX:+UseCompressedOops -Dconfig
   
   <entry>
     <title type="html"><![CDATA[Play in the Cloud]]></title>
-    <link href="http://danielreuterwall.github.io/blog/2013/01/08/play-in-the-cloud/"/>
+    <link href="http://daniel.reuterwall.com/blog/2013/01/08/play-in-the-cloud/"/>
     <updated>2013-01-08T21:26:00+01:00</updated>
-    <id>http://danielreuterwall.github.io/blog/2013/01/08/play-in-the-cloud</id>
+    <id>http://daniel.reuterwall.com/blog/2013/01/08/play-in-the-cloud</id>
     <content type="html"><![CDATA[<h2>Create your Play project</h2>
 
 <p>In this first part of Play with multiple environments on Heroku, we’ll start off simple and create a new Play project and deploy it to Heroku. The full process is even documented in <a href="http://www.playframework.com/documentation/2.1.0/ProductionHeroku">the official Play Framework documentation</a>.</p>
@@ -181,7 +181,7 @@ $ heroku config:add JAVA_OPTS="-Xmx384m -Xss512k -XX:+UseCompressedOops -Dconfig
 <pre><code>$ play new playtuts
 </code></pre>
 
-<p><img src="http://danielreuterwall.github.io/images/posts/create-playtuts.png" title="Creating the playtuts project" ></p>
+<p><img src="http://daniel.reuterwall.com/images/posts/create-playtuts.png" title="Creating the playtuts project" ></p>
 
 <p>We chose to <em>Create a simple Java application</em> for the unfortunate reason that I’m not yet so familiar with Scala. It will however not affect this tutorial.</p>
 
@@ -191,7 +191,7 @@ $ heroku config:add JAVA_OPTS="-Xmx384m -Xss512k -XX:+UseCompressedOops -Dconfig
 $ play run
 </code></pre>
 
-<p><img src="http://danielreuterwall.github.io/images/posts/local-running.png" title="Playtuts project running locally" ></p>
+<p><img src="http://daniel.reuterwall.com/images/posts/local-running.png" title="Playtuts project running locally" ></p>
 
 <p>Seeing this screen in our browser at <a href="http://localhost:9000">http://localhost:9000</a> tells us we’re on track. The page now shows the default Play welcome message.</p>
 
@@ -208,7 +208,7 @@ $ play run
 <pre><code>$ heroku apps:create playtuts
 </code></pre>
 
-<p><img src="http://danielreuterwall.github.io/images/posts/create-heroku-app.png" title="Creating the Heroku app" ></p>
+<p><img src="http://daniel.reuterwall.com/images/posts/create-heroku-app.png" title="Creating the Heroku app" ></p>
 
 <p>What we get from this command is, as stated in the output, an Heroku app serving from <a href="http://playtuts.herokuapp.com">http://playtuts.herokuapp.com</a> and a remote git repository where we’ll deploy our project.</p>
 
@@ -225,11 +225,11 @@ $ git commit -m "Initial commit"
 $ git push heroku master
 </code></pre>
 
-<p><img src="http://danielreuterwall.github.io/images/posts/git-and-deploy.png" title="Setup Git repository and deploy to Heroku" ></p>
+<p><img src="http://daniel.reuterwall.com/images/posts/git-and-deploy.png" title="Setup Git repository and deploy to Heroku" ></p>
 
 <p>Heroku will automatically detect that we deployed a Play application and start it accordingly. You’ll see the whole deployment process from the git push output. Once it’s ready you can again open up your browser and now hit <a href="http://playtuts.herokuapp.com">http://playtuts.herokuapp.com</a>.</p>
 
-<p><img src="http://danielreuterwall.github.io/images/posts/heroku-running.png" title="Playtuts project running in the cloud" ></p>
+<p><img src="http://daniel.reuterwall.com/images/posts/heroku-running.png" title="Playtuts project running in the cloud" ></p>
 
 <p>This super exciting screenshot shows that we successfully deployed our project to Heroku. The difference in appearance from our local site comes from the fact that the app now runs in production mode and the former welcome page is stripped.</p>
 

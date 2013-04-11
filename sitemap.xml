@@ -1,29 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://danielreuterwall.github.io/blog/2013/01/08/play-in-the-cloud/</loc>
+        <loc>http://daniel.reuterwall.com/blog/2013/01/08/play-in-the-cloud/</loc>
         <lastmod>2013-04-03T22:16:28+02:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://danielreuterwall.github.io/blog/2013/01/16/setting-up-a-staging-environment/
-        </loc>
+        <loc>http://daniel.reuterwall.com/blog/2013/01/16/setting-up-a-staging-environment/</loc>
         <lastmod>2013-04-03T22:16:23+02:00</lastmod>
     </url>
     <url>
-        <loc>http://danielreuterwall.github.io/blog/2013/04/03/restrict-access/</loc>
+        <loc>http://daniel.reuterwall.com/blog/2013/04/03/restrict-access/</loc>
         <lastmod>2013-04-09T20:23:13+02:00</lastmod>
     </url>
     <url>
-        <loc>http://danielreuterwall.github.io/blog/archives/</loc>
+        <loc>http://daniel.reuterwall.com/blog/archives/</loc>
         <lastmod>2013-04-09T20:23:13+02:00</lastmod>
     </url>
     <url>
-        <loc>http://danielreuterwall.github.io/</loc>
+        <loc>http://daniel.reuterwall.com/</loc>
         <lastmod>2013-04-09T20:23:13+02:00</lastmod>
     </url>
     <url>
-        <loc>http://danielreuterwall.github.io/robots.txt</loc>
+        <loc>http://daniel.reuterwall.com/robots.txt</loc>
         <lastmod>2013-04-01T14:33:51+02:00</lastmod>
     </url>
 </urlset>
