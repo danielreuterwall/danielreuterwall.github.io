@@ -152,11 +152,15 @@
 <pre><code>WWW-Authenticate: Basic realm="insert realm"
 </code></pre>
 
-<p>We&#8217;ll add some configuration properties to enable basic auth on staging and also to set the realm to be used. In <code>staging.conf</code>:</p>
+<p>We&#8217;ll add some configuration properties to enable basic auth on staging and also to set the realm to be used.</p>
 
-<pre><code>basicAuth.enable=true
-basicAuth.realm="Access is restricted, although any credentials will do."
-</code></pre>
+<figure class='code'><figcaption><span>staging.conf  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">basicAuth</span><span class="o">.</span><span class="na">enable</span><span class="o">=</span><span class="kc">true</span>
+</span><span class='line'><span class="n">basicAuth</span><span class="o">.</span><span class="na">realm</span><span class="o">=</span><span class="s">&quot;Access is restricted, although any credentials will do.&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>The realm is supposed to be an opaque value identifying the restricted area of the server but we&#8217;ll give an informative message along with it. For this tutorial we&#8217;ll let any credentials pass but we&#8217;ll open up for real authentication logic for you to implement.</p>
 
@@ -164,22 +168,35 @@ basicAuth.realm="Access is restricted, although any credentials will do."
 
 <p>When the application starts we&#8217;ll check the configuration to see if we should setup basic auth for this environment. In the global object we override the <code>onStart(Application)</code> method to do our initial check. From the app object we can get our configuration object and check our <code>basicAuth.enable</code> property.</p>
 
-<pre><code>Configuration configuration = app.configuration();
-basicAuth = configuration.getBoolean("basicAuth.enable");
-</code></pre>
+<figure class='code'><figcaption><span>Global.java  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Configuration</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="na">configuration</span><span class="o">();</span>
+</span><span class='line'><span class="n">basicAuth</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="na">getBoolean</span><span class="o">(</span><span class="s">&quot;basicAuth.enable&quot;</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Now if we find that we do need to setup basic auth we should intercept each request, validate the authentication and respond with the proper response code and header mentioned earlier if the user has not yet been authenticated. To keep our Global object as clean as possible we&#8217;ll move out the logic directly connected to basic auth to a separate class, <code>BasicAuth.java</code>. This class will be responsible for creating a proper response when authorization is needed and validating the credentials given by the user.</p>
 
 <p>This leaves just a few lines of code to out global object and more specifically to the <code>onRequest(Request, Method)</code> method.</p>
 
-<pre><code>public Action onRequest(Request request, Method actionMethod) {
-    if(protectAll &amp;&amp; !basicauth.authenticate(request)) {
-        return basicauth.getUnauthorizedAction();
-    }
+<figure class='code'><figcaption><span>Global.java  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="n">Action</span> <span class="nf">onRequest</span><span class="o">(</span><span class="n">Request</span> <span class="n">request</span><span class="o">,</span> <span class="n">Method</span> <span class="n">actionMethod</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">if</span><span class="o">(</span><span class="n">protectAll</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">basicauth</span><span class="o">.</span><span class="na">authenticate</span><span class="o">(</span><span class="n">request</span><span class="o">))</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">basicauth</span><span class="o">.</span><span class="na">getUnauthorizedAction</span><span class="o">();</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onRequest</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">actionMethod</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    return super.onRequest(request, actionMethod);
-}
-</code></pre>
 
 <p>Our complete <code>Global.java</code> implementation now looks like this:</p>
 
